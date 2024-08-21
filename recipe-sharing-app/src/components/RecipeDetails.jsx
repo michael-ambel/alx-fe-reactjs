@@ -8,12 +8,13 @@ import { useParams } from 'react-router-dom';
   const RecipeDetails = () => {
     const { recipeId } = useParams();
     const recipe = useRecipeStore(state => state.recipes.find(recipe => recipe.id === Number(recipeId)))
+    const id = Number( recipe.id) 
     return (
       <div>
         <h1>{recipe.title}</h1>
         <p>{recipe.description}</p>
-        <EditRecipeForm id={recipe.id}/>
-        <DeleteRecipeButton id={recipe.id} />
+        <EditRecipeForm id = {id}/>
+        <DeleteRecipeButton id = {id}/>
         {/* Render EditRecipeForm and DeleteRecipeButton here */}
       </div>
     );

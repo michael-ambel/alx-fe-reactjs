@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom'
 
 const DeleteRecipeButton = (props) => {
   const navigate = useNavigate();
+  const id = Number(props.id);
 
     const deleteRecipe = useRecipeStore(state => state.deleteRecipe)
 
 
     const handleDelete = (event) => {
         event.preventDefault();
-        const id = Number(props.id);
+        
         console.log(id);
         deleteRecipe(id);
         navigate('/');
