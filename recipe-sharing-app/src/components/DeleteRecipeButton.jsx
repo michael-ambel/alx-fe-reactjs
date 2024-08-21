@@ -1,7 +1,9 @@
 import useRecipeStore from './recipeStore';
+import { useNavigate } from 'react-router-dom'
 
 
 const DeleteRecipeButton = (props) => {
+  const navigate = useNavigate();
 
     const deleteRecipe = useRecipeStore(state => state.deleteRecipe)
 
@@ -11,6 +13,7 @@ const DeleteRecipeButton = (props) => {
         const id = Number(props.id);
         console.log(id);
         deleteRecipe(id);
+        navigate('/');
       };
 
     return ( 
