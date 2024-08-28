@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState({ username: '', password: '', email: '' });
-    const [errors, setErrors] = useState({ usernameError: '', passwordError: '', emailError: '' });
-
+    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [errors, setErrors] = useState({ usernameError: '', emailError: '', passwordError: '' });
+    const { username, password, email } = formData;
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({ ...prevState, [name]: value }));
@@ -23,7 +23,8 @@ const RegistrationForm = () => {
         }
         
         else{
-           console.log(formData); 
+           console.log(formData);
+           setErrors({ usernameError: '', emailError: '', passwordError: '' })
         }
         
     };
@@ -32,7 +33,7 @@ const RegistrationForm = () => {
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                name="name"
+                name="username"
                 value={username}
                 onChange={handleChange}
             />
@@ -45,7 +46,7 @@ const RegistrationForm = () => {
             />
             <div>{errors.emailError}</div>
             <input
-                type="email"
+                type="text"
                 name="password"
                 value={password}
                 onChange={handleChange}
