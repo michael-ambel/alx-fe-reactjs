@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
     const [errors, setErrors] = useState({ usernameError: '', emailError: '', passwordError: '' });
