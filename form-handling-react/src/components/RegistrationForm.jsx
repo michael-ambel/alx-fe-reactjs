@@ -12,13 +12,13 @@ const RegistrationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!username){
+        if (!username){
             setErrors((prevState) => ({...prevState, usernameError:'Username can not be empty'}))
         }
-        if(!email){
+        if (!email){
             setErrors((prevState) => ({...prevState, emailError:'Email can not be empty'}))
         }
-        if(!password){
+        if (!password){
             setErrors((prevState) => ({...prevState, passwordError:'Password can not be empty'}))
         }
         
