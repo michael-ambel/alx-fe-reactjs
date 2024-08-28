@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState({ name: '', email: '' });
+    const [formData, setFormData] = useState({ username: '', password: '', email: '' });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -10,7 +10,7 @@ const RegistrationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(formData.name === '' && formData.email === '' ){
+        if(formData.username === '' && formData.email === '' && formData.password === '' ){
             console.log("Fild can not be blank");
         }else{
            console.log(formData); 
@@ -23,13 +23,19 @@ const RegistrationForm = () => {
             <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData.username}
                 onChange={handleChange}
             />
             <input
                 type="email"
                 name="email"
                 value={formData.email}
+                onChange={handleChange}
+            />
+            <input
+                type="email"
+                name="password"
+                value={formData.password}
                 onChange={handleChange}
             />
             <button type="submit">Submit</button>
