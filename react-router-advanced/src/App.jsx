@@ -10,12 +10,11 @@ function App() {
     <>
     <Router>
       <nav>
-        <Link to="/blogs">Blog</Link> | <Link to="/profile">Profile</Link>
+        <Link to="/blog">Blog</Link> | <Link to="/profile">Profile</Link>
       </nav>
       <Routes>
         <Route path="/profile/*" element={<Profile />} />
-        <Route path="/blogs/*" element={<BlogPost />} />
-
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
     
