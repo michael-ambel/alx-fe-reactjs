@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-const AddTodoForm = ({ onAddTodo }) => {
+const AddTodoForm = (props) => {
   const [newTodo, setNewTodo] = useState('');
-
+// eslint-disable-next-line react/prop-types
+const onAddTodo = props.onAddTodo;
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newTodo.trim() === '') return; // Prevent adding empty todos

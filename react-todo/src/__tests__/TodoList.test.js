@@ -23,11 +23,11 @@ test('add new TodoList functionality', () => {
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
 })
 
-test('delet Todo item', () => {
+test('delete Todo item', () => {
     render(<TodoList />);
-    const deletButton = screen.getAllByText('Delete')
+    const deleteButton = screen.getAllByText('Delete')
 
-    fireEvent.click(deletButton[0])
+    fireEvent.click(deleteButton[0])
 
     expect(screen.queryByText('Learn React')).not.toBeInTheDocument();
 
