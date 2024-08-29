@@ -7,7 +7,7 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client = {queryClient}>
+    <QueryClientProvider client={queryClient}>
       <PostsComponent />
     </QueryClientProvider>
   )
