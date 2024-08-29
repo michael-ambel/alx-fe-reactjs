@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { test, expect } from '@jest/globals';
 import TodoList from '../components/TodoList';
+import React from 'react';
 
 test('render TodoList component', () => {
     render(<TodoList />);
