@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { test, expect } from '@jest/globals';
 import TodoList from '../components/TodoList';
-import React from 'react';
+
 
 test('render TodoList component', () => {
     render(<TodoList />);
@@ -23,6 +23,20 @@ test('add new TodoList functionality', () => {
   
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
 })
+
+test('toggles a todo item from incomplete to complete', () => {
+    render(<TodoList />);
+    expect(screen.getByLabelText('Learn React')).not.toBeChecked();
+    fireEvent.click(screen.getByLabelText('Learn React'));
+    expect(screen.getByLabelText('Learn React')).toBeChecked();
+  });
+  
+  test('toggles a todo item from complete to incomplete', () => {
+    render(<TodoList />);
+    fireEvent.click(screen.getByLabelText('Learn React'));
+    fireEvent.click(screen.getByLabelText('Learn React'));
+    expect(screen.getByLabelText('Learn React')).not.toBeChecked();
+  });
 
 test('delete Todo item', () => {
     render(<TodoList />);
