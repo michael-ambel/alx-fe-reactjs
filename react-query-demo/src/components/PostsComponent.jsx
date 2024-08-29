@@ -22,6 +22,7 @@ const PostsComponent = () => {
                 <li key={post.id}>{post.title}</li>
                 ))}
             </ul>
+            <button onClick={() => {window.location.reload()}}>Reload</button>
         </div>
     );
 };
