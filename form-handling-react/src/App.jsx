@@ -2,7 +2,7 @@
 
 import './App.css'
 import RegistrationForm from './components/RegistrationForm'
-import FormikForm from './components/formikForm'
+// import FormikForm from './components/formikForm'
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <RegistrationForm />
-      <FormikForm />
+      {/* <FormikForm /> */}
 
     </div>
   )
