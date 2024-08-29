@@ -1,4 +1,6 @@
-import { render, screen, fireEvent, expect, test } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import '@testing-library/jest-dom';
+import { expect, test } from '@jest/globals';
 import TodoList from "../components/TodoList";
 
 test('render TodoList component', () => {
