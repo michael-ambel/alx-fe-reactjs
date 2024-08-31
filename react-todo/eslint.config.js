@@ -5,6 +5,16 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
+  {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testEnvironment": "jsdom"
+  },
+  {
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+  },  
+  
   { ignores: ['dist'] },
   {
     files: ['**/*.{js,jsx}'],
@@ -36,3 +46,4 @@ export default [
     },
   },
 ]
+
