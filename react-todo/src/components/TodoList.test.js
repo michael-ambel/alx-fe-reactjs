@@ -1,7 +1,7 @@
 const { render, screen, fireEvent } = require('@testing-library/react');
 require('@testing-library/jest-dom');
 const { jest, test, expect } = require('@jest/globals');
-const TodoList = require('../TodoList');
+const TodoList = require('./TodoList');
 
 
 test('render TodoList component', () => {
