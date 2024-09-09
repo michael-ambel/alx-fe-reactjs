@@ -3,12 +3,16 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": "Spaghetti Carbonara requires spaghetti, eggs, Parmesan cheese, pancetta, black pepper, and salt. ", 
+      "instructions":"Cook spaghetti al dente and reserve some pasta water. Whisk eggs, Parmesan, and pepper in a bowl. Cook pancetta until crisp. Add drained spaghetti to the pancetta fat. Remove from heat and slowly pour egg mixture over pasta, whisking constantly. Add reserved pasta water for desired consistency. Toss in pancetta and serve immediately, topped with more Parmesan cheese if desired."
     },
     {
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredient": "To make Chicken Tikka Masala, you'll need chicken breasts, yogurt, spices like turmeric, cumin, and garam masala, tomatoes, cream, and butter.", 
+      "instructions": "Marinate chicken breasts in yogurt and spices. Grill or bake the marinated chicken until cooked through. In a separate pan, sauté onions and garlic. Add tomatoes, cream, and butter. Simmer until the sauce thickens. Add the cooked chicken to the sauce and let it simmer for a few minutes. Serve with rice or naan bread."
     }
 ]

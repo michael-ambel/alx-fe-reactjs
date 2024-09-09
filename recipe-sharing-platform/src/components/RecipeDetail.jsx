@@ -18,6 +18,8 @@ const RecipeDetail = () => {
                 <img className="w-40 h-40 object-cover" src={data.image} alt={data.title} />
                 <h2 className="text-3xl font-bold ">{data.title}</h2>
                 <p>{data.summary}</p>
+                <p>{data.ingredient}</p>
+                <p>{data.instructions}</p>
             </div>
         </div>
      );
