@@ -3,15 +3,18 @@ import jsonData from '../data.json'
 import { useEffect, useState } from 'react';
 
 const RecipeDetail = () => {
-    const id = useParams()
+    const {id }= useParams()
+    console.log(id);
     const[data, setData] = useState([])
 
     useEffect(() => {
-        jsonData.filter((data) => data.id === id)
-        const [data] = jsonData;
-        setData(data)
-        console.log(data);
-    }, [])
+        const filterdData = jsonData.find((data) => data.id === parseInt(id));
+        console.log(filterdData);  
+        if(filterdData){
+            setData(filterdData)
+
+        }
+    }, [id])
     return ( 
         <div>
             <div className="flex flex-col md:flex-row items-center justify-center w-auto h-auto gap-8 bg-slate-300 p-4 rounded-2xl shadow-sm shadow-slate-500 hover:scale-105 transition-transform transform">
