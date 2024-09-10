@@ -8,7 +8,7 @@ const AddRecipeForm = () => {
     const [summary, setSummary] = useState('')
     const [ingredients, setIngredients] = useState('')
     const [steps, setSteps] = useState('')
-    const [error, setError] = useState('')
+    const [errors, setErrors] = useState('')
 
 
 
@@ -21,8 +21,8 @@ const AddRecipeForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!title | !summary | !ingredients | !preparation){
-            setError('Please fill all the filds')
+        if(!title | !summary | !ingredients | !steps){
+            setErrors('Please fill all the filds')
             return
         }
         const newId = recipes.length + 1;
@@ -32,7 +32,7 @@ const AddRecipeForm = () => {
     }
     return ( 
         <div>
-            <form className="flex flex-col items-center px-10 max-w-[600px] my-10" onSubmit={handleSubmit}>
+            <form className="flex flex-col items-center pt-10 max-w-[600px] my-4" onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input 
                 className="border-2 rounded-md border-gray-600"
@@ -67,7 +67,7 @@ const AddRecipeForm = () => {
                 />
                 <button className="w-28 bg-slate-400 mt-6" type="submit">Submit</button>
             </form>
-            <div>{error}</div>
+            <div className="mt-0 mb-10 text-red-700">{errors}</div>
         </div>
      );
 }
