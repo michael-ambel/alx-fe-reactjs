@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddRecipeForm = ({jsonData}) => {
+const AddRecipeForm = ({jsonData, setData}) => {
     const [recipes, setRecipes] = useState(jsonData)
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
@@ -9,28 +9,22 @@ const AddRecipeForm = ({jsonData}) => {
     const [steps, setSteps] = useState('')
     const [errors, setErrors] = useState('')
 
- 
-
-    const changeHndler = (e) => {
-        
-        const {name, value} = e.target;
-        setFormData(prevState => ({...formData, [name]:value}))
-
-    }
+    const validate = errors;
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!title | !summary | !ingredients | !steps){
+        if(!title || !summary || !ingredients || !steps){
             setErrors('Please fill all the filds')
-            const validate = errors;
             return
         }
-        const newId = JSON.parse(recipes).length + 1;
-        setId(newId)
-        console.log(newId);
-        setFormData(prevState => ({...prevState, [id]:id}))
-        const newJsonData = JSON.stringify({id, title, summary, ingredients, preparation: steps})
-        setRecipes((prvRec) => ({...prvRec, newJsonData}))
+
+        setErrors('')
+
+
+        const newRecipe = {id:recipes.length + 1, title, summary, image: "https://via.placeholder.com/150", ingredients, instructions: steps}
+        setRecipes((prvRec) => ([...prvRec, newRecipe]))
+        setData(recipes)
+        console.log(recipes);
     }
     return ( 
         <div>
@@ -44,7 +38,7 @@ const AddRecipeForm = ({jsonData}) => {
                 value={title}
                 />
                 <label>Summery</label>
-                <input 
+                <textarea 
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
@@ -52,15 +46,15 @@ const AddRecipeForm = ({jsonData}) => {
                 value={summary}
                 />
                 <label htmlFor="">Ingredients</label>
-                <input
+                <textarea
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
                 onChange={e => setIngredients(e.target.value)}
                 value={ingredients} 
                 />
-                <label htmlFor="">Preparation</label>
-                <input 
+                <label htmlFor="">Instructions</label>
+                <textarea 
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
@@ -69,7 +63,7 @@ const AddRecipeForm = ({jsonData}) => {
                 />
                 <button className="w-28 bg-slate-400 mt-6" type="submit">Submit</button>
             </form>
-            {validate? <div></div> : <div className="mt-0 mb-10 text-red-700">{errors}</div>}
+            {validate && <div className="mt-0 mb-10 text-red-700">{errors}</div>}
         </div>
      );
 }
