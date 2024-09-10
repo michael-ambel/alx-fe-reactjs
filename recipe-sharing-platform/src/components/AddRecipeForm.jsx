@@ -9,7 +9,7 @@ const AddRecipeForm = ({jsonData}) => {
     const [steps, setSteps] = useState('')
     const [errors, setErrors] = useState('')
 
-
+ 
 
     const changeHndler = (e) => {
         
@@ -22,6 +22,7 @@ const AddRecipeForm = ({jsonData}) => {
         e.preventDefault()
         if(!title | !summary | !ingredients | !steps){
             setErrors('Please fill all the filds')
+            const validate = errors;
             return
         }
         const newId = JSON.parse(recipes).length + 1;
@@ -68,7 +69,7 @@ const AddRecipeForm = ({jsonData}) => {
                 />
                 <button className="w-28 bg-slate-400 mt-6" type="submit">Submit</button>
             </form>
-            <div className="mt-0 mb-10 text-red-700">{errors}</div>
+            {validate? <div></div> : <div className="mt-0 mb-10 text-red-700">{errors}</div>}
         </div>
      );
 }
