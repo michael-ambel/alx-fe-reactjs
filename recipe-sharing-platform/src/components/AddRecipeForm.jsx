@@ -34,7 +34,7 @@ const AddRecipeForm = ({jsonData}) => {
     }
     return ( 
         <div>
-            <form className="flex flex-col items-center pt-10 max-w-[600px] my-4" onSubmit={handleSubmit}>
+            <form className="flex flex-col shadow-sm font-medium items-center pt-10 max-w-[600px] my-4" onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input 
                 className="border-2 rounded-md border-gray-600"
