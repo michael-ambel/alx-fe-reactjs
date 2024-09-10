@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import jsonData from '../data.json';
 import { Link } from "react-router-dom";
+import AddRecipeForm from "./AddRecipeForm";
 
 const HomePage = () => {
   const [data, setData] = useState([]); 
@@ -11,6 +12,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <AddRecipeForm />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
         {data.map((rec, index) => (
             <Link to={`/recipe/${rec.id}`}>
