@@ -9,7 +9,7 @@ const AddRecipeForm = () => {
     const [preparation, setPreparation] = useState('')
     const [error, setError] = useState('')
 
-    const changeHndler = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         const {name, value} = e.target;
 
@@ -27,7 +27,7 @@ const AddRecipeForm = () => {
     }
     return ( 
         <div>
-            <form className="flex flex-col items-center px-10 max-w-[600px] my-10">
+            <form className="flex flex-col items-center px-10 max-w-[600px] my-10" onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input 
                 className="border-2 rounded-md border-gray-600"
