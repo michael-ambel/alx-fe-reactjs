@@ -3,27 +3,28 @@ import recipeData from '../data.json'
 
 const AddRecipeForm = () => {
     const [recipes, setRecipes] = useState(recipeData)
-    const [title, setTitle] = useState('')
-    const [summary, setSummery] = useState('')
-    const [ingredients, setIngredients] = useState('')
-    const [preparation, setPreparation] = useState('')
+    const [formData, setFormData] = useState({id:'', title:'', summary:'', ingredients:'', preparation:''})
     const [error, setError] = useState('')
+    const {id, title, summary, ingredients, preparation} = formData
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+
+    const changeHndler = (e) => {
+        
         const {name, value} = e.target;
+        setFormData(prevState => ({...formData, [name]:value}))
 
     }
 
-    const submitHndler = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if(!title | !summary | !ingredients | !preparation){
             setError('Please fill all the filds')
             return
         }
-        const id = recipeData.length + 1;
-        const newRecepie = JSON.stringify({id, title, summary, ingredients, preparation})
-
+        const newId = recipes.length + 1;
+        console.log(newId);
+        setFormData(prevState => ({...prevState, id:newId}))
+        setRecipes((prvRec) => ({...prvRec, formData}))
     }
     return ( 
         <div>
@@ -36,16 +37,33 @@ const AddRecipeForm = () => {
                 onChange={(e) => changeHndler(e)}
                 value={title}
                 />
+                <label>Summery</label>
+                <input 
+                className="border-2 rounded-md border-gray-600"
+                type="textarea" 
+                name = 'title'
+                onChange={(e) => changeHndler(e)}
+                value={summary}
+                />
                 <label htmlFor="">Ingredients</label>
                 <input
                 className="border-2 rounded-md border-gray-600"
-                type="textarea" />
+                type="textarea" 
+                name = 'title'
+                onChange={(e) => changeHndler(e)}
+                value={ingredients} 
+                />
                 <label htmlFor="">Preparation</label>
                 <input 
                 className="border-2 rounded-md border-gray-600"
-                type="textarea" />
-                <button className="w-28 bg-slate-400 m-6" type="submit">Submit</button>
+                type="textarea" 
+                name = 'title'
+                onChange={(e) => changeHndler(e)}
+                value={preparation} 
+                />
+                <button className="w-28 bg-slate-400 mt-6" type="submit">Submit</button>
             </form>
+            <div>{error}</div>
         </div>
      );
 }
