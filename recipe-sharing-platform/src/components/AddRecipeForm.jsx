@@ -1,8 +1,7 @@
 import { useState } from "react";
-import recipeData from '../data.json'
 
-const AddRecipeForm = () => {
-    const [recipes, setRecipes] = useState(recipeData)
+const AddRecipeForm = ({jsonData}) => {
+    const [recipes, setRecipes] = useState(jsonData)
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
     const [summary, setSummary] = useState('')
@@ -25,10 +24,12 @@ const AddRecipeForm = () => {
             setErrors('Please fill all the filds')
             return
         }
-        const newId = recipes.length + 1;
+        const newId = JSON.parse(recipes).length + 1;
+        setId(newId)
         console.log(newId);
-        setFormData(prevState => ({...prevState, [id]:newId}))
-        setRecipes((prvRec) => ({...prvRec, formData}))
+        setFormData(prevState => ({...prevState, [id]:id}))
+        const newJsonData = JSON.stringify({id, title, summary, ingredients, preparation: steps})
+        setRecipes((prvRec) => ({...prvRec, newJsonData}))
     }
     return ( 
         <div>
