@@ -3,9 +3,13 @@ import recipeData from '../data.json'
 
 const AddRecipeForm = () => {
     const [recipes, setRecipes] = useState(recipeData)
-    const [formData, setFormData] = useState({id:'', title:'', summary:'', ingredients:'', preparation:''})
+    const [id, setId] = useState('')
+    const [title, setTitle] = useState('')
+    const [summary, setSummary] = useState('')
+    const [ingredients, setIngredients] = useState('')
+    const [steps, setSteps] = useState('')
     const [error, setError] = useState('')
-    const {id, title, summary, ingredients, preparation} = formData
+
 
 
     const changeHndler = (e) => {
@@ -23,7 +27,7 @@ const AddRecipeForm = () => {
         }
         const newId = recipes.length + 1;
         console.log(newId);
-        setFormData(prevState => ({...prevState, id:newId}))
+        setFormData(prevState => ({...prevState, [id]:newId}))
         setRecipes((prvRec) => ({...prvRec, formData}))
     }
     return ( 
@@ -34,7 +38,7 @@ const AddRecipeForm = () => {
                 className="border-2 rounded-md border-gray-600"
                 type="text" 
                 name = 'title'
-                onChange={(e) => changeHndler(e)}
+                onChange={e => setTitle(e.target.value)}
                 value={title}
                 />
                 <label>Summery</label>
@@ -42,7 +46,7 @@ const AddRecipeForm = () => {
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
-                onChange={(e) => changeHndler(e)}
+                onChange={e => setSummary(e.target.value)}
                 value={summary}
                 />
                 <label htmlFor="">Ingredients</label>
@@ -50,7 +54,7 @@ const AddRecipeForm = () => {
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
-                onChange={(e) => changeHndler(e)}
+                onChange={e => setIngredients(e.target.value)}
                 value={ingredients} 
                 />
                 <label htmlFor="">Preparation</label>
@@ -58,8 +62,8 @@ const AddRecipeForm = () => {
                 className="border-2 rounded-md border-gray-600"
                 type="textarea" 
                 name = 'title'
-                onChange={(e) => changeHndler(e)}
-                value={preparation} 
+                onChange={e => setSteps(e.target.value)}
+                value={steps} 
                 />
                 <button className="w-28 bg-slate-400 mt-6" type="submit">Submit</button>
             </form>
