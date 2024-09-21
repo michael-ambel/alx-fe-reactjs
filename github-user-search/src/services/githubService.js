@@ -6,6 +6,6 @@ export const fetchUserData  = async (username) => {
         return {data: response.data, error:null}
     }
     catch(error){
-        return{data: null, error:'We cant find the user'}
+        return{data: null, error:'Looks like we cant find the user'}
     }
 }
