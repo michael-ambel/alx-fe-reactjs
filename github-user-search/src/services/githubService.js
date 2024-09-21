@@ -9,3 +9,13 @@ export const fetchUserData  = async (username) => {
         return{data: null, error:'Looks like we cant find the user'}
     }
 }
+
+export const fetchUsers = async (location, repoCount) => {
+    const response = await axios.get(`https://api.github.com/search/users`, {
+        params: {
+            q: `location:${location} repos:>${repoCount}`,
+            per_page: 10,
+        }
+    })
+    return response.data.items
+}
