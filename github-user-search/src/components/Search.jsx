@@ -5,7 +5,7 @@ const Search = () => {
     
     const [username, setUsername] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-    const [userError, setUserError] = useState('')
+    const [userError, setUserError] = useState(false)
     const [userData, setUserData] = useState(null)
 
     const submitHandler = async (e) => {
@@ -19,7 +19,7 @@ const Search = () => {
         
         setIsLoading(false)
         if(error){
-            setUserError(error)
+            setUserError(true)
             setUserData(null)
             console.log(error);
         }
@@ -44,7 +44,7 @@ const Search = () => {
                 />
                 <button>Fetch User</button>
             </form>
-            {userError && <p>{userError}</p>}
+            {userError && <p>Looks like we cant find the user</p>}
             {isLoading && <p>Loading....</p>}
             {userData && (
                 <div>
