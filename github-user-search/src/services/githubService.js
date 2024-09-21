@@ -10,10 +10,10 @@ export const fetchUserData  = async (username) => {
     }
 }
 
-export const fetchUsers = async (location, repoCount) => {
-    const response = await axios.get(`https://api.github.com/search/users`, {
+export const fetchUsers = async (location, minRepos) => {
+    const response = await axios.get(`https://api.github.com/search/users?q`, {
         params: {
-            q: `location:${location} repos:>${repoCount}`,
+            q: `location:${location} repos:>${minRepos}`,
             per_page: 10,
         }
     })
