@@ -21,12 +21,10 @@ const Search = () => {
         if(error){
             setUserError(true)
             setUserData(null)
-            console.log(error);
         }
         if(data){
             setUserError('')
             setUserData(data)
-            console.log(data);
         }   
     }
 
